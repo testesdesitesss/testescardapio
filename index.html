@@ -17,6 +17,10 @@
     
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Lato:wght@300;400;700;900&display=swap');
     
+    html {
+      height: 100%;
+    }
+    
     body {
       margin: 0;
       padding: 0;
@@ -24,6 +28,7 @@
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      height: 100%;
     }
     
     .menu-container {
@@ -503,7 +508,7 @@
       padding: 40px;
       max-width: 600px;
       width: 100%;
-      max-height: 90vh;
+      max-height: 90%;
       overflow-y: auto;
       border: 1px solid rgba(201, 160, 95, 0.2);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -725,7 +730,7 @@
    <div class="hero-section" id="heroSection">
     <div class="hero-content">
      <h2 class="hero-title" id="restaurantName">Cardápio invó</h2>
-     <p class="hero-tagline" id="restaurantTagline">Culinária Italiana Autêntica</p>
+     <p class="hero-tagline" id="restaurantTagline">Descubra sabores únicos e pratos especiais preparados com carinho</p>
      <div class="divider" id="heroDivider"></div>
     </div>
    </div>
@@ -735,41 +740,41 @@
     <div class="search-box"><span class="search-icon">🔍</span> <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar pratos, ingredientes ou categorias..."> <button class="search-clear" id="searchClear" style="display: none;">✕</button>
     </div>
    </div>
-   <div class="menu-content">
-    <div class="category-section">
-     <div class="category-header">
+   <main class="menu-content">
+    <section class="category-section">
+     <header class="category-header">
       <h2 class="category-title" id="appetizersTitle">Entradas</h2><button class="add-item-btn" onclick="openItemModal('appetizers')">+ Adicionar Prato</button>
-     </div>
+     </header>
      <div class="items-grid" id="appetizersGrid"></div>
-    </div>
-    <div class="category-section">
-     <div class="category-header">
+    </section>
+    <section class="category-section">
+     <header class="category-header">
       <h2 class="category-title" id="mainCoursesTitle">Pratos Principais</h2><button class="add-item-btn" onclick="openItemModal('mainCourses')">+ Adicionar Prato</button>
-     </div>
+     </header>
      <div class="items-grid" id="mainCoursesGrid"></div>
-    </div>
-    <div class="category-section">
-     <div class="category-header">
+    </section>
+    <section class="category-section">
+     <header class="category-header">
       <h2 class="category-title" id="pastaTitle">Massas Especiais</h2><button class="add-item-btn" onclick="openItemModal('pasta')">+ Adicionar Prato</button>
-     </div>
+     </header>
      <div class="items-grid" id="pastaGrid"></div>
-    </div>
-    <div class="category-section">
-     <div class="category-header">
+    </section>
+    <section class="category-section">
+     <header class="category-header">
       <h2 class="category-title" id="dessertsTitle">Sobremesas</h2><button class="add-item-btn" onclick="openItemModal('desserts')">+ Adicionar Prato</button>
-     </div>
+     </header>
      <div class="items-grid" id="dessertsGrid"></div>
-    </div>
-    <div class="category-section">
-     <div class="category-header">
+    </section>
+    <section class="category-section">
+     <header class="category-header">
       <h2 class="category-title" id="beveragesTitle">Carta de Vinhos &amp; Bebidas</h2><button class="add-item-btn" onclick="openItemModal('beverages')">+ Adicionar Prato</button>
-     </div>
+     </header>
      <div class="items-grid" id="beveragesGrid"></div>
-    </div>
-   </div>
-   <div class="footer" id="footer">
+    </section>
+   </main>
+   <footer class="footer" id="footer">
     <p>© 2024 La Dolce Vita. Todos os direitos reservados.</p>
-   </div>
+   </footer>
   </div><button class="admin-btn" id="adminBtn" title="Editar Cardápio">⚙️</button>
   <div class="edit-modal" id="settingsModal">
    <div class="edit-panel">
@@ -876,7 +881,7 @@
       actions.style.display = isAdminAuthenticated ? 'flex' : 'none';
       actions.innerHTML = `
         <button class="item-action-btn edit-item-btn" onclick="editItem('${item.__backendId || item.id}')" title="Editar">✏️</button>
-        <button class="item-action-btn delete-item-btn" onclick="deleteItem('${item.__backendId || item.id}')" title="Excluir">����️</button>
+        <button class="item-action-btn delete-item-btn" onclick="deleteItem('${item.__backendId || item.id}')" title="Excluir">🗑️</button>
       `;
       
       const imageDiv = document.createElement('div');
@@ -1183,6 +1188,11 @@
     }
 
     function openItemModal(category) {
+      if (!isAdminAuthenticated) {
+        openPasswordModal();
+        return;
+      }
+      
       editingItemId = null;
       currentCategory = category;
       
@@ -1485,5 +1495,5 @@
       }
     })();
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b0069e7a004f623',t:'MTc2NjA3OTI5NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b0077678018f623',t:'MTc2NjA3OTg0Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
