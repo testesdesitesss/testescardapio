@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cardápio Invó</title>
+  <title>Card���pio Invó</title>
   <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -140,6 +140,12 @@
       color: #c9a961;
       transform: rotate(90deg);
     }
+    
+    .nav-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(157, 122, 58, 0.4);
+      background: linear-gradient(135deg, #c9a961 0%, #9d7a3a 100%);
+    }
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
@@ -149,10 +155,12 @@
    <div id="imageModal" class="modal-overlay"><span class="close-button">×</span> <img id="modalImage" class="modal-image" src="" alt="Imagem ampliada">
    </div><!-- Background Image -->
    <div style="position: absolute; top: 0; left: 0; right: 0; height: 600px; background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIygdJl0zlDqB2M-HKoX_kPWNt2Dnnt0juhtpwYnJqc4baAaGzzahREGevZWEzyXIngQ5gR2o1zbWyr_ZxmxY8iM9jzpeyIMNnx92n8xvNpNlbbnuAEpnxEwwjJnEV6fI3u9Lh7TNNC-8LWAtZiOjU-XMEipM7X3C5n1O6HJAnNS1cpPlCWNLkMOgUsMrD/s1584/Banner%20para%20LinkedIn%20Advogada%20Moderno%20Elegante%20Simples%20Azul%20Branco.png'); background-size: cover; background-position: center; opacity: 0.08; pointer-events: none; z-index: 0;"></div><!-- Hero Section -->
-   <header class="text-center py-16 px-8 mb-20" style="position: relative; z-index: 1;">
+   <header class="text-center py-16 px-8 mb-8" style="position: relative; z-index: 1;">
     <div class="ornament mb-8"></div>
     <h1 id="restaurant-name" class="font-playfair text-7xl font-bold gold-gradient mb-4">Invó</h1>
-    <p id="restaurant-tagline" class="font-montserrat text-xl tracking-wide">Comida gostosa do jeitin do abraço de vó</p>
+    <p id="restaurant-tagline" class="font-montserrat text-xl tracking-wide mb-8">Comida gostosa do jeitin do abraço de vó</p><!-- Navigation Buttons -->
+    <div style="display: flex; gap: 1rem; max-width: 400px; margin: 0 auto; justify-content: center;"><a href="https://zerotofamebr.github.io/adegainv-/" target="_blank" rel="noopener noreferrer" class="nav-button font-montserrat" style="flex: 1; padding: 0.875rem 1.5rem; background: linear-gradient(135deg, #9d7a3a 0%, #c9a961 100%); color: #0a0a0a; text-decoration: none; border-radius: 8px; font-weight: 500; text-align: center; transition: all 0.3s ease; border: 2px solid #9d7a3a;"> Vinhos </a> <a href="https://zerotofamebr.github.io/bebidasinv-/" target="_blank" rel="noopener noreferrer" class="nav-button font-montserrat" style="flex: 1; padding: 0.875rem 1.5rem; background: linear-gradient(135deg, #9d7a3a 0%, #c9a961 100%); color: #0a0a0a; text-decoration: none; border-radius: 8px; font-weight: 500; text-align: center; transition: all 0.3s ease; border: 2px solid #9d7a3a;"> Bebidas </a>
+    </div>
     <div class="ornament mt-8"></div>
    </header>
    <div class="max-w-6xl mx-auto px-8 pb-16" style="position: relative; z-index: 1;"><!-- Entradas -->
@@ -230,7 +238,7 @@
        </div>
       </div>
       <div class="menu-item flex gap-6 items-start">
-       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpKKw7SMFcvMsVDz5QEjWUzWq7R-DYP-z1nqK2FChXmEtSUrEKyPylAcscuGIzgsl8eOwQLKI_p0jnK4LpSmV9I_K10dcjQWYNTbUekX0N6ZCPABwL42i5NXI7bLpO7taM2Kbg58f_o_DrJVDf3iIfIS0u0nHsXh1povlA090XKRAq_xDP_6bl957EZZSW/s3888/IMG_0484.jpeg" alt="Franguim Avuado" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>�����</div>';">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpKKw7SMFcvMsVDz5QEjWUzWq7R-DYP-z1nqK2FChXmEtSUrEKyPylAcscuGIzgsl8eOwQLKI_p0jnK4LpSmV9I_K10dcjQWYNTbUekX0N6ZCPABwL42i5NXI7bLpO7taM2Kbg58f_o_DrJVDf3iIfIS0u0nHsXh1povlA090XKRAq_xDP_6bl957EZZSW/s3888/IMG_0484.jpeg" alt="Franguim Avuado" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍗</div>';">
        </div>
        <div class="flex-grow">
         <div class="flex justify-between items-start mb-2">
@@ -290,7 +298,7 @@
        </div>
       </div>
       <div class="menu-item flex gap-6 items-start">
-       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpn4qEDPVB-xjJAYw8-VTWe0Iu_zC7PEchdHyLoN-Wgo4wGzty7PKluFAA7FWYwtOHv6oAgkimXwEdwiRZzOCcknmog5F3ElkfwyBCr8AnlI5iKw8FGNk2LbFlUXCCfsKXcI_Nqh86OveUFI1-qOnKUd9VU9dFTkwMbWPEMP24ZOpSZuF1E1ZO1kZQ2Mvy/s1434/IMG_0582.jpeg" alt="Camarão alho e óleo" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🦐</div>';">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpn4qEDPVB-xjJAYw8-VTWe0Iu_zC7PEchdHyLoN-Wgo4wGzty7PKluFAA7FWYwtOHv6oAgkimXwEdwiRZzOCcknmog5F3ElkfwyBCr8AnlI5iKw8FGNk2LbFlUXCCfsKXcI_Nqh86OveUFI1-qOnKUd9VU9dFTkwMbWPEMP24ZOpSZuF1E1ZO1kZQ2Mvy/s1434/IMG_0582.jpeg" alt="Camarão alho e óleo" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>���</div>';">
        </div>
        <div class="flex-grow">
         <div class="flex justify-between items-start mb-2">
@@ -306,55 +314,179 @@
      <h2 id="principais-title" class="font-playfair text-4xl font-semibold text-center mb-12 gold-gradient">Pratos Principais</h2>
      <div class="space-y-8">
       <div class="menu-item flex gap-6 items-start">
-       <div class="dish-image flex-shrink-0">
-        <div class="dish-placeholder">
-         🥩
-        </div>
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixP2cSPCmz4MddiB3uvXgmly3xOfaIL91HCmv8KgxNc6McBecOvNChyvhesS73iG0oPnR5tnAj951Ymes2yAi14h-UtOCXE85iDSn9ME8F1uH_0cQ4Gpiq6yPaqdwIJ05od3He9lXES-Y1wH26CVvsR_h16k3CcqefNoTZf-3PkF6UWjx3xmmMQ-TmXnbc/s3888/IMG_0483.jpeg" alt="Camarão João Pessoa" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🦐</div>';">
        </div>
        <div class="flex-grow">
         <div class="flex justify-between items-start mb-2">
-         <h3 class="font-playfair text-2xl font-semibold">Wagyu A5 Japon����s</h3><span class="font-montserrat text-xl ml-4">R$ 280</span>
+         <h3 class="font-playfair text-2xl font-semibold">Camarão João Pessoa</h3><span class="font-montserrat text-xl ml-4">R$ 149,90</span>
         </div>
-        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">250g de Wagyu grelhado ao ponto, acompanhado de purê de batata trufado e aspargos grelhados</p>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Arroz gratinado de camarão puxado à base de moqueca e servido com camarões empanados</p>
        </div>
       </div>
       <div class="menu-item flex gap-6 items-start">
-       <div class="dish-image flex-shrink-0">
-        <div class="dish-placeholder">
-         🐟
-        </div>
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiaLEFMgAWPQezMUINHmtHxeziTevB4eegkuvn78MfPN2DpkVA6bsOhzY5TDo26DcC5m0eJJllpxkBbka-Ut9D40o3wk75kgi9KtM-9E8xNZDZ7c136JlGiEmT-_EBSRJl2Mrr-CITT2I0tRkuhkAgPyW7Q2V6Osbz7bD3JwrS70iyq6yW7ma5CmZHRa7G1/s1320/IMG_0587.jpeg" alt="Filé à Parmegiana dupla" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍝</div>';">
        </div>
        <div class="flex-grow">
         <div class="flex justify-between items-start mb-2">
-         <h3 class="font-playfair text-2xl font-semibold">Robalo ao Molho de Champagne</h3><span class="font-montserrat text-xl ml-4">R$ 165</span>
+         <h3 class="font-playfair text-2xl font-semibold">Filé à Parmegiana dupla</h3><span class="font-montserrat text-xl ml-4">R$ 129,90</span>
         </div>
-        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Filé de robalo com crosta de ervas, molho de champagne, risoto de limão siciliano e legumes baby</p>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Tradicional filé empanado servido com cama de molho de tomate italiano e gratin de mussarela, servido com massa (grano duro)</p>
        </div>
       </div>
       <div class="menu-item flex gap-6 items-start">
-       <div class="dish-image flex-shrink-0">
-        <div class="dish-placeholder">
-         ����
-        </div>
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEh2Rv3MD-042uJiS9n_ExdXnPLC9Zblef_YHIzD57SxSA3qY15yRSVs09goQWbFHQALa_bWBtMPlmDOs5YEXBl5ERBFlC0yY6NTej5D1xfPksaFWp6v2cNufX_eIR-eyvZbZBSK8rLj_7KsT9sAu_4hK-0XAiW2NBsJcO7_AVqFn8q31CK4YTd4a5z7kcql" alt="Picanha Trinchada" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🥩</div>';">
        </div>
        <div class="flex-grow">
         <div class="flex justify-between items-start mb-2">
-         <h3 class="font-playfair text-2xl font-semibold">Cordeiro Wellington</h3><span class="font-montserrat text-xl ml-4">R$ 195</span>
+         <h3 class="font-playfair text-2xl font-semibold">Picanha Trinchada</h3><span class="font-montserrat text-xl ml-4">R$ 89,90</span>
         </div>
-        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Rack de cordeiro em crosta de massa folhada, duxelles de cogumelos selvagens e molho de vinho tinto</p>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Steaks de picanha selada na chapa com manteiga de ervas, sal temperado e cebolas roxas, servido com acompanhamentos: farofa e vinagrete</p>
        </div>
       </div>
       <div class="menu-item flex gap-6 items-start">
-       <div class="dish-image flex-shrink-0">
-        <div class="dish-placeholder">
-         🦆
-        </div>
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEgq8dsIPLUBIpBvP2trfO6_jjCr-wuydR9ftMQ1lmiU7BL9iNiupfc682cnpdVmuRRuNBXoguAO7szlkQkOEo8EYD6NzWTSnU23BkB4FqMWkq9xhitVpc7-2o4YOjsJ4lQVhnt4iflP6JcYH0KEqxDBF4N_Jcl4ubk2pBYJZocdmAXx2aKSGgkL63_xlqDC" alt="Picanha Completa" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🥩</div>';">
        </div>
        <div class="flex-grow">
         <div class="flex justify-between items-start mb-2">
-         <h3 class="font-playfair text-2xl font-semibold">Pato Laqueado</h3><span class="font-montserrat text-xl ml-4">R$ 158</span>
+         <h3 class="font-playfair text-2xl font-semibold">Picanha Completa</h3><span class="font-montserrat text-xl ml-4">R$ 159,00</span>
         </div>
-        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Magret de pato laqueado com mel e especiarias, purê de maçã verde e batatas fondant</p>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Picanha trinchada grelhada na chapa com temperos especiais, servida com acompanhamentos tradicionais</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrTFmhbGuscTa1SrjYXr-Sqn2lqeW7NHCOOafVyTRF1JBarOGLmNUQ12WQRWV8q8lGUuola-yWv9_ROoBWfRpdODSUEFSJdX9G9xvto433Qhz8C1sdKVIEh5jxo7l8oFBfND5LCQolDh4OaaYOn_WibFQGIfvFD9VMpzUQaqj31mMQaKNbF0WN_1g85MeQ/s1462/IMG_0586.jpeg" alt="Filé de Seu Pedro" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🥩</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Filé de Seu Pedro</h3><span class="font-montserrat text-xl ml-4">R$ 189,00</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Medalhões de filé mignon selados e flambados servidos com creme de gorgonzola. Acompanha: Arroz à Piemontese</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-C6Zld-fY1bEWT401V4aoU9n5i1Ln80dEd0fb_hwQGtAr6Cl599ZRMZT0Ofjtwt5ZJotIq0WG5yYJmuo_axNLhWgUywMKrtQQL1NztvygIBmgiaAA1NYjrjl3J45kWSj8BZEiG31zG2kha0lCGUgqXv6JoS8SMp4KDcP0_4H-fg91KMWEiolet7wngiPt/s3888/IMG_0485.jpeg" alt="Costela de Bacurim" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍖</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Costela de Bacurim</h3><span class="font-montserrat text-xl ml-4">R$ 89,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Costela suína assada lentamente regada com barbecue de abacaxi. Acompanha batata corte rústico temperadas com tempero do chef</p>
+       </div>
+      </div>
+     </div>
+    </section>
+    <div class="section-divider"></div><!-- Pratos Executivos -->
+    <section class="mb-16">
+     <h2 id="executivos-title" class="font-playfair text-4xl font-semibold text-center mb-12 gold-gradient">Pratos Executivos</h2>
+     <div class="space-y-8">
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuECi2xjpnvk3EfiX5cqj6qofdqy2tRifJmeELJoYX4E53FQfMVost7cLJTzmQAMFneHiJV0LW-JRzQTW9LTRUSaWZ8ZrGXY55vLVU4klYY840uD5XXr3Qoio1JtLq9cFR5xqo4Oq5D-y5PCkYwLDJtabV_ZaVydLGsSJY6TdREMNoAs-oMIpQm_-3HOrH/s6240/IMG_0588.jpeg" alt="Cumê de Rico" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🦐</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Cumê de Rico</h3><span class="font-montserrat text-xl ml-4">R$ 59,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Arroz cremoso ao molho branco, puxado com camarões salteados e camarões empanados</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPlH5EwQb3nLaNFU1g8Uo99Ld4Ob2QwHD-SbJ0RwZpTPL36JR9BPwZGT9B4V1HpJi4g6al2wr7_MXn5_kfW9plZjK9jkKl8sCn8MUDXAaZDMi-lX7KFu2MCuqJNJzHHXw1TZ69oT3FiGXMVDL6ayL7X0ZdFgbZkHi_NMmGrqTLyAggEeHIAYV5znp5iASL/s1506/IMG_0591.jpeg" alt="Boi Bêbo" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍖</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Boi Bêbo</h3><span class="font-montserrat text-xl ml-4">R$ 39,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Costela bovina marinada na cerveja preta e ervas assada levemente ao vapor e servida com nosso delicioso arroz de jerimum e cebolinho</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqNdELCwu7nu4Cvdw2VWFolczTXNI3nT-ZGgNlsRzCXcgUUztAdH-HQawikC_w8uDzG5L4MvgGxvVc0VKevB2FKYjmXVhObQ-TqYGwE5sZVvA52PP82XwM54TyQfDkLevkWqg2DWE84R4USf4jp5Qklmrpb_NfJehy0KnauCtxaAtQy6oi5c2MEGimYFyQ/s1320/IMG_0592.jpeg" alt="Cumêzim de Vó" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍚</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Cumêzim de Vó</h3><span class="font-montserrat text-xl ml-4">R$ 32,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Arroz vermelho cozido ao leite, servido com chips de macaxeira crocante e carne de sol desfiçada</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiv_I9Xj8TjcYZbqleQ57g-5p1haruAPqTeOyM4Ty6L3x8I8SjshZxd9vQn7mTWN4JThn_9ugWrZ4RGmgEuOFUCkM5b4SS_tDwMtxhOXAF5rcvVx6eUeQp2AHO13cfbYM3q4aC4l-7NG0Np7yltXcWhC6tT7cTH1BHt8Km0KNWyb6LQFCgP0hJ3Y_JQBrHF/s1675/IMG_0593.jpeg" alt="Filé à Parmegiana" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍝</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Filé à Parmegiana</h3><span class="font-montserrat text-xl ml-4">R$ 59,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Filé empanado com cama de molho de tomate italiano e gratin de mussarela, servido com massa italiana</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnIq8A0EF0Ed0PzYPn0Xn1SW1VQitEE06ZqkORvRukgmNbrJAObMieff_olxvjWCOyl1cdN-_DThuB3y0cDPBmyO4OxPe8Jzbw_arskmOPMbNBRaeCcQVP_QXKL4ILqI3bV5_271vLWVbpNDJE0z9kQtiX2Z2ViCR5nvFcYOlmXFCNzXy_njqKR9XK0g5C/s3888/1735_Thiago_Ferreira_Fotografia.jpg" alt="Baião de 4" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍚</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Baião de 4</h3><span class="font-montserrat text-xl ml-4">R$ 49,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Baião de feijão verde puxado com carne de sol, queijo coalho, charque, torresmo e servido com couve frito</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTI-v_lNJtkfW-putMLKq4sdHNbaiZo4apyyaO2PdOpPGMIXnDLU-NpM5CE0UCkAyAOCu_RAoAeimXjR4m7tV2P-zLk4F9sQfK_HjVQXL9sO_ZNYvq_sLj4X-UEPh3k_zgFbhduFJbou1f8unRU4KYnpUsEw-nkI4T6fS8lJPbiHHT_PChVCV_Qjes7MXZ/s1414/IMG_0594.jpeg" alt="Camarão do Chef" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🦐</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Camarão do Chef</h3><span class="font-montserrat text-xl ml-4">R$ 72,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Massa italiana com molho bisque de camarão, finalizado com tomates confitados e camarões salteados</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXL-bJp4ImlqkU8XQBMIBOWvX2vFL00gPuiSRyzp-DepWdZ1P-p-8M1hOrKYSsy8SLoGnK0fuyleSaQqXWqM4mBORQ9f_RNOcIsuwB7fLxp5TIWKyFgDXK4RJSGLRjSWdM5R3Ahx9JUX64rlvK_0G1QjBxbeXyP98avg3hCKcDANKl6_75cPVxQzXeFqpP/s3888/1910_Thiago_Ferreira_Fotografia.jpg" alt="Frango à Parmegiana" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍗</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Frango à Parmegiana</h3><span class="font-montserrat text-xl ml-4">R$ 39,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Filé de frango empanado com cama de molho de tomate italiano e gratinado de mussarela servido com massa italiana</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEiF6I3BDBOJS8w_F1YR2io8T37CXODc9vcAEJMn2zQgKVfbb5Knw3XeqpieM3TOAl-FQVMR8Kf-sG9YwC-MmkjhbZTOOmhfMD1wlFpQTJdpGqnWLmrLmMMsUk-UWVV1571Ne-wBtOZ1fD0f8Gc8KyWyapZURWW-Vz4ykAfjZkq3KVz3ClbZ_W2gleoRsA_Y" alt="Frango à Parmegiana Trinchada" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍗</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Frango à Parmegiana Trinchada</h3><span class="font-montserrat text-xl ml-4">R$ 39,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Filé de frango trinchado com molho de tomate italiano e gratinado de queijo mussarela</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEjAr7mxPn09Hqm7B1tNrYuR93WtVkOrWClL2QQsw_IvL8-aWgHECDW17GSRCLLh0ceDUfniANMsEsqUyavsRSXyiKhKVcV3Yw-Gg2LeUl4E3fZlx1tNMnOu5ylWHZwgn01u1DNk2frH7MxiK1ZF0pptGMJUytjBntJTRRW2knvKwPgWbtieYDCHjntzvMtX" alt="Camarão à Romana" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🦐</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Camarão à Romana</h3><span class="font-montserrat text-xl ml-4">R$ 54,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Camarões inteiros com cama de molho rosê e gratinado de mussarela</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://s2-receitas.glbimg.com/-sgWIXsrYhqvx1NPI2R4u-nPXVU=/0x0:1280x800/1000x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f540e0b94d8437dbbc39d567a1dee68/internal_photos/bs/2022/T/v/SCRij3TS2bYO5oGKS10A/arroz-a-piamontese-receita.jpg" alt="Arroz à Piemontese" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍚</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Arroz à Piemontese</h3><span class="font-montserrat text-xl ml-4">R$ 19,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Arroz cremoso quatro queijos</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEgkzUEIxBh2VQMEHZGKRgPrORdAII9wAp_tW-pRFphk4avURiZMyZoKLy3eyglRyKtte_HFqlEXksQfDsPavG11bIbeyEgTSg7Omam5otkM7AH6CrGAgp6y-VTe_LZ8IBfMKY9FFNyVC80wuvwsk72E8lyH214zqpds3WpArIKcMa4Ab6UdSNFfheivWJgS" alt="Franguim Magrim" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍗</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Franguim Magrim</h3><span class="font-montserrat text-xl ml-4">R$ 39,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Filé de frango cozido levemente no suco, grelhado na chapa e servido com arroz branco e mix salada crua</p>
        </div>
       </div>
      </div>
@@ -364,42 +496,53 @@
      <h2 id="sobremesas-title" class="font-playfair text-4xl font-semibold text-center mb-12 gold-gradient">Sobremesas</h2>
      <div class="space-y-8">
       <div class="menu-item flex gap-6 items-start">
-       <div class="dish-image flex-shrink-0">
-        <div class="dish-placeholder">
-         🍐
-        </div>
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQP63-CilGvc5sR03eAHyC_jY8qSio8KO3myjCjCDogbj2VSQ4RIu4-Bx0n0k1NoGzF93sNa2hebTCLlv7wGhbOxbmA4JOmpAA9fgMXEEyxvNZj0yOyWxpRODEQvy-3wRlWUN84iqxSCtrxKmavhiaVOhIqTmPwaQ7MeBiaa7PUj5BPyzJXq5bSeCkv7nh/s5628/2350_Thiago_Ferreira_Fotografia.jpg" alt="Dirmantelo de Goiabada" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>��</div>';">
        </div>
        <div class="flex-grow">
         <div class="flex justify-between items-start mb-2">
-         <h3 class="font-playfair text-2xl font-semibold">Tarte Tatin de Pêra</h3><span class="font-montserrat text-xl ml-4">R$ 42</span>
+         <h3 class="font-playfair text-2xl font-semibold">Dirmantelo de Goiabada</h3><span class="font-montserrat text-xl ml-4">R$ 32,90</span>
         </div>
-        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Tarte invertida de pêra caramelizada, sorvete de baunilha de Madagascar e calda de caramelo</p>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Brûlée de creme de queijo de manteiga com calda de goiabada, crumble de biscoito e castanha de caju</p>
        </div>
       </div>
       <div class="menu-item flex gap-6 items-start">
-       <div class="dish-image flex-shrink-0">
-        <div class="dish-placeholder">
-         🍫
-        </div>
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvN6Igv_vN-9ZL0ct7rHhI8FP_LRC-8Br2SUxw44WLFW42sua_2Ic2K-Kfh-rlBsBREqB3jcNSK1xP1ahOCGW0-gLxNo1Mo8MZIQdIeLtABBIu-tiQG7m1yr7PfrzjucggWXnLebTWqzf3IDEySNSKjMdXEIQSiTjwfse19yeWjb6k354R_LHLsD1yohXM/s6240/2579_Thiago_Ferreira_Fotografia.jpg" alt="Pudim Matuto" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍮</div>';">
        </div>
        <div class="flex-grow">
         <div class="flex justify-between items-start mb-2">
-         <h3 class="font-playfair text-2xl font-semibold">Mousse de Chocolate Valrhona</h3><span class="font-montserrat text-xl ml-4">R$ 38</span>
+         <h3 class="font-playfair text-2xl font-semibold">Pudim Matuto</h3><span class="font-montserrat text-xl ml-4">R$ 19,90</span>
         </div>
-        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Mousse aerada de chocolate 70% cacau, crocante de avelã e raspas de ouro comestível</p>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Nossa tradicional receita de pudim feito com leite de coco e calda de rapadura</p>
        </div>
       </div>
       <div class="menu-item flex gap-6 items-start">
-       <div class="dish-image flex-shrink-0">
-        <div class="dish-placeholder">
-         ����
-        </div>
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_wYresLuUGumZHiNmj2VCk-SCBI7g3ASxsVU34QeF66eyV59u-jmL1bPVyiIzJ9TzP4eJjPqBNgyakc0JAI1OlAjHCUTCyds_42EzryD_Eqo1awBm4_dWELSRsGNoBd1lEMD-lJBJkip1WdqniSsKXkoSYRCLvl5JNgT2ZZSTrsKgnuE5vy6pDHXjVBup/s6240/1952_Thiago_Ferreira_Fotografia.jpg" alt="Bagaceira de Chocolate" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍫</div>';">
        </div>
        <div class="flex-grow">
         <div class="flex justify-between items-start mb-2">
-         <h3 class="font-playfair text-2xl font-semibold">Crème Brûlée de Pistache</h3><span class="font-montserrat text-xl ml-4">R$ 36</span>
+         <h3 class="font-playfair text-2xl font-semibold">Bagaceira de Chocolate</h3><span class="font-montserrat text-xl ml-4">R$ 32,90</span>
         </div>
-        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Creme queimado de pistache siciliano com açúcar caramelizado e sorvete de flor de laranjeira</p>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Gran Gateau de chocolate com picolé crocante</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpX75QJLs-Bq7JoswISnWqYvcTaBbLqTGyW7zbmbGuG8wtvrnFD9Z-QeAD8SOIFHYKBxePixp463qyL6mueCWMgjLN5dGcgEq0HvLA7L8c1hYrGkGq88TakacSrK1nd2BgqthqJr7zytNi3nF8ThtnsVtU1jgbibIpV9kVoDVgKpPbDV-AeX846fCXB-Uy/s1600/b1da8d55-adec-43ff-b2fb-1afedb34ab33.jfif" alt="Cocada Quente" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🥥</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Cocada Quente</h3><span class="font-montserrat text-xl ml-4">R$ 34,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Cocada cremosa assada ao forno com brûlée e sorvete de creme</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEgcPI8ajBEuC5wFGqVQsrrZK0iDjnvj645C5jG6D5sB78GQdnMXT7SKbtZPEJrkYKGTxLl45gzU0Jgu5WZWXasAUcMYivAosIqYhXFsSYerwUIJZg2YPB75o-e9q-VQ1B97Twt9mZo5yP4JkW50XJ1BFwL75OGjrjCa0SiudZPzEI9U1MKVtTHX3NgV4hl_" alt="Surpresa de Morango" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍓</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Surpresa de Morango</h3><span class="font-montserrat text-xl ml-4">R$ 34,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Creme baunilha, sorvete creme e geleia de morango</p>
        </div>
       </div>
      </div>
@@ -421,8 +564,9 @@
       restaurant_tagline: "Comida gostosa do jeitin do abraço de vó",
       entradas_title: "Entradas",
       principais_title: "Pratos Principais",
+      executivos_title: "Pratos Executivos",
       sobremesas_title: "Sobremesas",
-      footer_text: "Chef Executivo: Alexandre Dubois | Reservas: (11) 3456-7890"
+      footer_text: "• Terça a sábado a partir das 18:00h • Domingo almoço às 11:00h • Contato: 83 9179-5370"
     };
 
     async function onConfigChange(config) {
@@ -496,6 +640,7 @@
       document.getElementById('restaurant-tagline').textContent = config.restaurant_tagline || defaultConfig.restaurant_tagline;
       document.getElementById('entradas-title').textContent = config.entradas_title || defaultConfig.entradas_title;
       document.getElementById('principais-title').textContent = config.principais_title || defaultConfig.principais_title;
+      document.getElementById('executivos-title').textContent = config.executivos_title || defaultConfig.executivos_title;
       document.getElementById('sobremesas-title').textContent = config.sobremesas_title || defaultConfig.sobremesas_title;
       document.getElementById('footer-text').textContent = config.footer_text || defaultConfig.footer_text;
     }
@@ -580,6 +725,7 @@
         ["restaurant_tagline", config.restaurant_tagline || defaultConfig.restaurant_tagline],
         ["entradas_title", config.entradas_title || defaultConfig.entradas_title],
         ["principais_title", config.principais_title || defaultConfig.principais_title],
+        ["executivos_title", config.executivos_title || defaultConfig.executivos_title],
         ["sobremesas_title", config.sobremesas_title || defaultConfig.sobremesas_title],
         ["footer_text", config.footer_text || defaultConfig.footer_text]
       ]);
@@ -625,5 +771,5 @@
       e.stopPropagation();
     });
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b306d80f06af623',t:'MTc2NjU4Mjc1OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b30aeb13626f623',t:'MTc2NjU4NTQyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
