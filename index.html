@@ -3,1508 +3,627 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cardápio Digital Premium</title>
+  <title>Cardápio Invó</title>
   <script src="/_sdk/element_sdk.js"></script>
-  <script src="/_sdk/data_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Montserrat:wght@300;400;500&amp;display=swap" rel="stylesheet">
   <style>
     body {
       box-sizing: border-box;
     }
     
-    * {
-      box-sizing: border-box;
+    .font-playfair {
+      font-family: 'Playfair Display', serif;
     }
     
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Lato:wght@300;400;700;900&display=swap');
-    
-    html {
-      height: 100%;
-      background: #0a0a0a !important;
+    .font-montserrat {
+      font-family: 'Montserrat', sans-serif;
     }
     
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Lato', sans-serif;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      height: 100%;
-      background: #0a0a0a !important;
+    .gold-gradient {
+      background: linear-gradient(135deg, #9d7a3a 0%, #c9a961 50%, #9d7a3a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
-    .menu-container {
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      position: relative;
-      background: #0a0a0a !important;
-    }
-    
-    .hero-section {
-      padding: 220px 40px 100px 40px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 550px;
-    }
-    
-    .hero-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIygdJl0zlDqB2M-HKoX_kPWNt2Dnnt0juhtpwYnJqc4baAaGzzahREGevZWEzyXIngQ5gR2o1zbWyr_ZxmxY8iM9jzpeyIMNnx92n8xvNpNlbbnuAEpnxEwwjJnEV6fI3u9Lh7TNNC-8LWAtZiOjU-XMEipM7X3C5n1O6HJAnNS1cpPlCWNLkMOgUsMrD/s1584/Banner%20para%20LinkedIn%20Advogada%20Moderno%20Elegante%20Simples%20Azul%20Branco.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 0.08;
-      pointer-events: none;
-    }
-    
-    .hero-section::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05), transparent 70%);
-      pointer-events: none;
-    }
-    
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 2px 10px rgba(0, 0, 0, 0.8);
-    }
-    
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 56px;
-      font-weight: 600;
-      margin: 0 0 12px 0;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #c9a05f !important;
-    }
-    
-    .hero-tagline {
-      font-size: 14px;
-      font-weight: 400;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin: 0;
-      opacity: 0.6;
-      color: #e8e8e8 !important;
-    }
-    
-    .divider {
-      width: 2px;
-      height: 60px;
-      margin: 50px auto;
-      background: linear-gradient(180deg, transparent, currentColor, transparent);
-      opacity: 0.3;
-    }
-    
-    .nav-menu {
-      position: sticky;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-      z-index: 1000;
-      background: rgba(26, 26, 26, 0.85);
-      padding: 8px;
-      border-radius: 16px;
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      justify-content: center;
-      margin: 0 auto 60px auto;
-      width: fit-content;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-    
-    .nav-btn {
-      padding: 10px 22px;
-      background: transparent;
-      border: none;
-      color: rgba(232, 232, 232, 0.65);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-    
-    .nav-btn:hover {
-      background: rgba(255, 255, 255, 0.06);
-      color: #e8e8e8;
-    }
-    
-    .nav-btn.active {
-      background: rgba(201, 160, 95, 0.9);
-      color: #0a0a0a;
-      font-weight: 700;
-    }
-    
-    .search-container {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1001;
-      width: 350px;
-    }
-    
-    .search-box {
-      position: relative;
-      display: flex;
-      align-items: center;
-      background: rgba(26, 26, 26, 0.85);
-      border: 1px solid rgba(201, 160, 95, 0.2);
-      border-radius: 50px;
-      padding: 0 20px;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-    
-    .search-box:focus-within {
-      border-color: rgba(201, 160, 95, 0.5);
-      background: rgba(26, 26, 26, 0.8);
-      box-shadow: 0 8px 24px rgba(201, 160, 95, 0.15);
-    }
-    
-    .search-icon {
-      font-size: 18px;
-      margin-right: 10px;
-      opacity: 0.5;
-    }
-    
-    .search-input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      padding: 12px 0;
-      color: #e8e8e8;
-      font-size: 14px;
-      font-family: 'Lato', sans-serif;
-      outline: none;
-    }
-    
-    .search-input::placeholder {
-      color: rgba(232, 232, 232, 0.4);
-    }
-    
-    .search-clear {
-      background: rgba(201, 160, 95, 0.2);
-      border: none;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      color: #c9a05f;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      transition: all 0.2s ease;
-      margin-left: 8px;
-    }
-    
-    .search-clear:hover {
-      background: rgba(201, 160, 95, 0.3);
-      transform: scale(1.1);
-    }
-    
-    .search-results-info {
-      text-align: center;
-      padding: 20px;
-      color: rgba(232, 232, 232, 0.6);
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-    
-    .highlight {
-      background: rgba(201, 160, 95, 0.3);
-      padding: 2px 4px;
-      border-radius: 3px;
-    }
-    
-    .menu-content {
-      max-width: 1600px;
+    .ornament {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #9d7a3a, transparent);
       margin: 0 auto;
-      padding: 40px 60px 80px 60px;
-    }
-    
-    .category-section {
-      margin-bottom: 120px;
-    }
-    
-    .category-header {
-      text-align: center;
-      margin-bottom: 60px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-    }
-    
-    .category-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 42px;
-      font-weight: 600;
-      margin: 0;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #c9a05f !important;
-    }
-    
-    .add-item-btn {
-      padding: 8px 18px;
-      background: rgba(201, 160, 95, 0.15);
-      border: 1px solid rgba(201, 160, 95, 0.3);
-      color: #c9a05f;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: none;
-    }
-    
-    .add-item-btn:hover {
-      background: rgba(201, 160, 95, 0.25);
-      border-color: rgba(201, 160, 95, 0.5);
-    }
-    
-    .items-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-      gap: 45px;
     }
     
     .menu-item {
-      border-radius: 16px;
-      overflow: hidden;
       transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      position: relative;
+      border-left: 2px solid transparent;
+      padding-left: 1.5rem;
     }
     
     .menu-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 32px rgba(0,0,0,0.35);
-      border-color: rgba(201, 160, 95, 0.2);
+      border-left-color: #9d7a3a;
+      transform: translateX(8px);
     }
     
-    .menu-item:hover .item-actions {
-      opacity: 1;
+    .menu-item:hover .dish-image {
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(157, 122, 58, 0.4);
     }
     
-    .item-actions {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      display: flex;
-      gap: 8px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: 10;
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #9d7a3a, transparent);
+      margin: 3rem 0;
     }
     
-    .item-action-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: none;
-      cursor: pointer;
+    .dish-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      border: 2px solid #9d7a3a;
+      object-fit: cover;
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
-      transition: all 0.2s ease;
-      backdrop-filter: blur(10px);
-    }
-    
-    .edit-item-btn {
-      background: rgba(201, 160, 95, 0.9);
-      color: #0a0a0a;
-    }
-    
-    .edit-item-btn:hover {
-      background: rgba(201, 160, 95, 1);
-      transform: scale(1.1);
-    }
-    
-    .delete-item-btn {
-      background: rgba(220, 53, 69, 0.9);
-      color: #fff;
-    }
-    
-    .delete-item-btn:hover {
-      background: rgba(220, 53, 69, 1);
-      transform: scale(1.1);
-    }
-    
-    .item-image {
-      width: 100%;
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
     }
     
-    .item-image::after {
-      content: '';
-      position: absolute;
+    .dish-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      opacity: 0.6;
+    }
+    
+    .dish-image img, .dish-image {
+      cursor: pointer;
+    }
+    
+    .modal-overlay {
+      display: none;
+      position: fixed;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.3));
-      pointer-events: none;
-    }
-    
-    .item-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-    
-    .menu-item:hover .item-image img {
-      transform: scale(1.05);
-    }
-    
-    .item-content {
-      padding: 32px 30px;
-    }
-    
-    .item-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      margin-bottom: 12px;
-      gap: 16px;
-    }
-    
-    .item-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      font-weight: 600;
-      margin: 0;
-      flex: 1;
-      letter-spacing: 0.5px;
-      color: #e8e8e8 !important;
-    }
-    
-    .item-price {
-      font-size: 20px;
-      font-weight: 700;
-      margin-left: 16px;
-      white-space: nowrap;
-      color: #c9a05f !important;
-    }
-    
-    .item-description {
-      font-size: 13px;
-      line-height: 1.6;
-      margin: 0 0 18px 0;
-      opacity: 0.6;
-      font-weight: 400;
-      color: #e8e8e8 !important;
-    }
-    
-    .item-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    
-    .tag {
-      padding: 5px 12px;
-      border-radius: 6px;
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      background: rgba(201, 160, 95, 0.15);
-      transition: all 0.2s ease;
-      color: #c9a05f !important;
-    }
-    
-    .menu-item:hover .tag {
-      background: rgba(201, 160, 95, 0.25);
-    }
-    
-    .footer {
-      text-align: center;
-      padding: 60px 40px;
-      font-size: 11px;
-      opacity: 0.4;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 400;
-      color: #e8e8e8 !important;
-    }
-    
-    .admin-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: rgba(201, 160, 95, 0.15);
-      border: 1px solid rgba(201, 160, 95, 0.3);
-      color: rgba(201, 160, 95, 0.6);
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      transition: all 0.3s ease;
-      z-index: 2000;
-      backdrop-filter: blur(10px);
     }
     
-    .admin-btn:hover {
-      background: rgba(201, 160, 95, 0.25);
-      color: rgba(201, 160, 95, 0.9);
-      transform: scale(1.05);
-      border-color: rgba(201, 160, 95, 0.5);
-    }
-    
-    .edit-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
-      z-index: 3000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      overflow-y: auto;
-    }
-    
-    .edit-modal.active {
+    .modal-overlay.active {
       display: flex;
     }
     
-    .edit-panel {
-      background: #1a1a1a;
-      border-radius: 16px;
-      padding: 40px;
-      max-width: 600px;
-      width: 100%;
+    .modal-image {
+      max-width: 90%;
       max-height: 90%;
-      overflow-y: auto;
-      border: 1px solid rgba(201, 160, 95, 0.2);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    }
-    
-    .edit-panel h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
-      color: #c9a05f;
-      margin: 0 0 30px 0;
-      text-align: center;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-    
-    .edit-section {
-      margin-bottom: 30px;
-    }
-    
-    .edit-section h3 {
-      font-size: 14px;
-      color: #c9a05f;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin: 0 0 15px 0;
-      font-weight: 700;
-    }
-    
-    .edit-field {
-      margin-bottom: 20px;
-    }
-    
-    .edit-field label {
-      display: block;
-      font-size: 12px;
-      color: rgba(232, 232, 232, 0.7);
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 600;
-    }
-    
-    .edit-field input,
-    .edit-field textarea,
-    .edit-field select {
-      width: 100%;
-      padding: 12px 16px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      color: #e8e8e8;
-      font-size: 14px;
-      font-family: 'Lato', sans-serif;
-      transition: all 0.3s ease;
-    }
-    
-    .edit-field textarea {
-      min-height: 80px;
-      resize: vertical;
-    }
-    
-    .edit-field input:focus,
-    .edit-field textarea:focus,
-    .edit-field select:focus {
-      outline: none;
-      border-color: #c9a05f;
-      background: rgba(255, 255, 255, 0.08);
-    }
-    
-    .edit-field select {
-      cursor: pointer;
-    }
-    
-    .edit-field input[type="text"]::placeholder,
-    .edit-field textarea::placeholder {
-      color: rgba(232, 232, 232, 0.3);
-    }
-    
-    .edit-actions {
-      display: flex;
-      gap: 12px;
-      margin-top: 30px;
-    }
-    
-    .edit-btn {
-      flex: 1;
-      padding: 14px 24px;
-      border: none;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-family: 'Lato', sans-serif;
-    }
-    
-    .edit-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    
-    .edit-btn.save {
-      background: #c9a05f;
-      color: #0a0a0a;
-    }
-    
-    .edit-btn.save:hover:not(:disabled) {
-      background: #d4af6f;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(201, 160, 95, 0.3);
-    }
-    
-    .edit-btn.cancel {
-      background: rgba(255, 255, 255, 0.05);
-      color: #e8e8e8;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .edit-btn.cancel:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-    
-    .empty-state {
-      text-align: center;
-      padding: 60px 20px;
-      color: rgba(232, 232, 232, 0.4);
-      font-size: 14px;
-    }
-    
-    .empty-state-icon {
-      font-size: 48px;
-      margin-bottom: 16px;
-    }
-    
-    .toast {
-      position: fixed;
-      bottom: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(26, 26, 26, 0.95);
-      color: #e8e8e8;
-      padding: 16px 32px;
+      border: 3px solid #9d7a3a;
       border-radius: 12px;
-      border: 1px solid rgba(201, 160, 95, 0.3);
-      font-size: 14px;
-      font-weight: 600;
-      z-index: 4000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 60px rgba(157, 122, 58, 0.5);
+      animation: zoomIn 0.3s ease;
     }
     
-    .toast.show {
-      opacity: 1;
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
     
-    .toast.error {
-      border-color: rgba(220, 53, 69, 0.5);
-      color: #dc3545;
+    .close-button {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: #9d7a3a;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 300;
+      z-index: 10000;
     }
     
-    .loading-spinner {
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      border: 2px solid rgba(10, 10, 10, 0.3);
-      border-top-color: #0a0a0a;
-      border-radius: 50%;
-      animation: spin 0.6s linear infinite;
-      margin-right: 8px;
-    }
-    
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    
-    @media (max-width: 768px) {
-      .hero-title {
-        font-size: 36px;
-      }
-      
-      .category-title {
-        font-size: 28px;
-      }
-      
-      .category-header {
-        flex-direction: column;
-        gap: 12px;
-      }
-      
-      .items-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-      
-      .menu-content {
-        padding: 30px 20px 60px 20px;
-      }
-      
-      .edit-panel {
-        padding: 30px 20px;
-      }
-      
-      .search-container {
-        width: calc(100% - 40px);
-        right: 20px;
-        left: 20px;
-      }
+    .close-button:hover {
+      color: #c9a961;
+      transform: rotate(90deg);
     }
   </style>
   <style>@view-transition { navigation: auto; }</style>
-  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body class="h-full">
-  <div class="menu-container" id="menuContainer">
-   <div class="hero-section" id="heroSection">
-    <div class="hero-content">
-     <h2 class="hero-title" id="restaurantName">Cardápio invó</h2>
-     <p class="hero-tagline" id="restaurantTagline">Descubra sabores únicos e pratos especiais preparados com carinho</p>
-     <div class="divider" id="heroDivider"></div>
-    </div>
-   </div>
-   <nav class="nav-menu"><button class="nav-btn active">Entradas</button> <a href="https://zerotofamebr.github.io/adegainv-/" target="_blank" rel="noopener noreferrer" class="nav-btn">Vinhos</a> <a href="https://zerotofamebr.github.io/bebidasinv-/" target="_blank" rel="noopener noreferrer" class="nav-btn">Bebidas</a>
-   </nav>
-   <div class="search-container">
-    <div class="search-box"><span class="search-icon">🔍</span> <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar pratos, ingredientes ou categorias..."> <button class="search-clear" id="searchClear" style="display: none;">✕</button>
-    </div>
-   </div>
-   <main class="menu-content">
-    <section class="category-section">
-     <header class="category-header">
-      <h2 class="category-title" id="appetizersTitle">Entradas</h2><button class="add-item-btn" onclick="openItemModal('appetizers')">+ Adicionar Prato</button>
-     </header>
-     <div class="items-grid" id="appetizersGrid"></div>
+ <body class="h-full font-montserrat">
+  <div id="app" class="w-full h-full overflow-auto" style="position: relative;"><!-- Modal for Image Zoom -->
+   <div id="imageModal" class="modal-overlay"><span class="close-button">×</span> <img id="modalImage" class="modal-image" src="" alt="Imagem ampliada">
+   </div><!-- Background Image -->
+   <div style="position: absolute; top: 0; left: 0; right: 0; height: 600px; background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIygdJl0zlDqB2M-HKoX_kPWNt2Dnnt0juhtpwYnJqc4baAaGzzahREGevZWEzyXIngQ5gR2o1zbWyr_ZxmxY8iM9jzpeyIMNnx92n8xvNpNlbbnuAEpnxEwwjJnEV6fI3u9Lh7TNNC-8LWAtZiOjU-XMEipM7X3C5n1O6HJAnNS1cpPlCWNLkMOgUsMrD/s1584/Banner%20para%20LinkedIn%20Advogada%20Moderno%20Elegante%20Simples%20Azul%20Branco.png'); background-size: cover; background-position: center; opacity: 0.08; pointer-events: none; z-index: 0;"></div><!-- Hero Section -->
+   <header class="text-center py-16 px-8" style="position: relative; z-index: 1;">
+    <div class="ornament mb-8"></div>
+    <h1 id="restaurant-name" class="font-playfair text-7xl font-bold gold-gradient mb-4">Invó</h1>
+    <p id="restaurant-tagline" class="font-montserrat text-xl tracking-wide">Comida gostosa do jeitin do abraço de vó</p>
+    <div class="ornament mt-8"></div>
+   </header>
+   <div class="max-w-6xl mx-auto px-8 pb-16" style="position: relative; z-index: 1;"><!-- Entradas -->
+    <section class="mb-16">
+     <h2 id="entradas-title" class="font-playfair text-4xl font-semibold text-center mb-12 gold-gradient">Entradas</h2>
+     <div class="space-y-8">
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaHl9C5mYm6HQMwgaslN8z7pek1E5I43OEkSb-7i_Jz92_8RmYFM9U9YCi4zxPyHW4VY-JCDW9m-7gEPdU30lJJEv5bkT-GLAfM2kJyZX6xavtYd6XsXpChiany2F5GP38K5-7z8CkYJwVPch6C4Tk5bUhcvp_mhY3yOfIPBRudVQ7FUo7J9scY8dz_JM5/s6240/IMG_0468.jpeg" alt="Pastéis Sortidos" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🥟</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Pastéis Sortidos</h3><span class="font-montserrat text-xl ml-4">R$ 29,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Carne, Pepperoni, Costela, Carne de Sol</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHIcIycf3R3LuY-iN4fMAGq-fYhqWzQqNY1pfqwMeEPz9ktQ81a8lrcDwsQPuxq2HuGJOja4hrPXh36Tt3OmuSyj21s9FEyBLK9KU0OdGPH_eKFRloDywjIZW2aibnjGqBsSygNw9G7t6ZAd882lJ3t3aKsDaKqxSnkQHWSmmCXTIKalTvk8mLQSZd2P8E/s16000/IMG_0469.jpeg" alt="Pastéis de Camarão" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🦐</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Pastéis de Camarão</h3><span class="font-montserrat text-xl ml-4">R$ 34,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Pastéis com creme cheese, creme de camarão servido com molho de ervas</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTvN9s9rV_KCTD75eaN4QWEsxQ56LVPlG9x4UcFnJfTndyip8NpB-VhVpP1iGCO5w3AL8OIyh_dGqcDrn4qdld9EusQf6XPogRE9ooKZXkmlE3-2McekufFd6S54v-pnMsgslmGhwrvXv0NuIviHkhP7PULA2QfaBpnaOyz7_6NpPHQNTscbHwJeqH7DU1/s3888/IMG_0479.jpeg" alt="Fritapá de Camarão" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🦐</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Fritapá de Camarão</h3><span class="font-montserrat text-xl ml-4">R$ 25,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Bolinho frito de vatapá de camarão com base de moqueca, crocante por fora e cremoso por dentro</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEiB9D0OEGiaQQWfcoIscSrjxtS_A09kHR6A70F-XcS4Y3HoYmBHsrYM7XnrOM-t9L3gqo6cs2FWpMRRkPv5bTuldGu1tNH59hgW2cC2g0zznCVNhIl1Ot2apS1Ha79gB0IzzmkngVhRxpxxh4xHs9Un1mAdIhp3opBt8i-um7j6Nb-trbAvGMRh4X6stdGd" alt="Caldo da Caridade" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍲</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Caldo da Caridade</h3><span class="font-montserrat text-xl ml-4">R$ 16,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Caldo de carne moída, legumes e ovo</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwvwE6DcQbcze_mB2L4tneoeonRVv0eXCxXGSMiE1_f3NxBSkOeFhKNVC9QyTTVVVQgm6G5Oi59aUStQKVh7f5AODDYHn4rPRXlrwksG78o8KRQlCgP2Q3mRa5uLwADZ__0N_1_rx_92GzwXRIB4V7wYlfywNYh38YirtyklGexiCrVpj5wCehiJVrVslo/s3888/IMG_0474.jpeg" alt="Carne de Sol Com Macaxeira" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🥩</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Carne de Sol Com Macaxeira</h3><span class="font-montserrat text-xl ml-4">R$ 39,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Carne de sol salteada na manteiga da terra e cebolas roxas, servidas com macaxeira cremosa e cubos de queijo coalho</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSnsiAPdH97s30LiMn9gGMgidfmRzXDmM6UoIORfIaG8DbQ8Q6VQ8NfX0voK61z-aw2oQTTProT7wAFc1jUKlKIiL3RGyLzGMn2g3q2gZ-LtVUERvQve4eeiORRtg8rm3KqwwQqgmD4spJnFAHw9hVdRv21xdgvFJuiBLqJpFwqJMLRqg5ymk6nmSTm7li/s16000/IMG_0475.jpeg" alt="Sol do Sertão" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🥔</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Sol do Sertão</h3><span class="font-montserrat text-xl ml-4">R$ 29,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Chips crocantes de macaxeira servidas com carne de sol desfiada, creme de nata</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGbh5RkmvuSrJuxuda6jgcIfFt9jyzl4Nz114LtYlwX5tzadKdWjcTpnrjFO9K1jDlcbxjTQ0pPH6LIJpAFuyu58LGlAco9x4oaOIyomLydM6fYaVYGkYXakF_xuPMa5LPjodQ_WOJP7DjiqU5XIie1B4QKrbz1rXpB1qPXgzwy5PyoxwRupQZk_JpJZ13/w1684-h1069-p-k-no-nu/IMG_0580.jpeg" alt="Batata Frita" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍟</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Batata Frita</h3><span class="font-montserrat text-xl ml-4">R$ 16,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Palitos de batata inglesa crocantes e servidos com raspas de queijo e molho da casa</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpKKw7SMFcvMsVDz5QEjWUzWq7R-DYP-z1nqK2FChXmEtSUrEKyPylAcscuGIzgsl8eOwQLKI_p0jnK4LpSmV9I_K10dcjQWYNTbUekX0N6ZCPABwL42i5NXI7bLpO7taM2Kbg58f_o_DrJVDf3iIfIS0u0nHsXh1povlA090XKRAq_xDP_6bl957EZZSW/s3888/IMG_0484.jpeg" alt="Franguim Avuado" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍗</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Franguim Avuado</h3><span class="font-montserrat text-xl ml-4">R$ 29,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Meio da asa marinadas no sous vide, fritas e servidas com molho barbecue asiática de abacaxi e gergelim</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEgkaxooT7hzSlO6LZeXLmIzHYnxwxzoGuctJVEJcvoyUNH_G8OHKsNkfwwNhSR3tr-ro7x-WWA_Bx49cwtnDQoXIXP-E7UrhrJbO6B_6RBPW7_s7e57ni16moJ5fWuw_LPuUHrcvh3MXtHygc90bHjjuZxBufgDKdOqD1uCp5P0V3ycLKhOHhJszMYeyM1b" alt="Croquetas Caipira" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍗</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Croquetas Caipira</h3><span class="font-montserrat text-xl ml-4">R$ 29,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Croquetas de frango recheados com milho e bacon</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBQ-3ssQy8zdx81f5l6Ob5sTZUoaq8JkE1GIzB0MolmmztlJcvKjkgGsl_kW7ZwiK7F4NPcst-bkTltqzinqkiGUpdzD_sb7B0AqeDloyUXS10iqFw9km_cwnmJxTPCrcfwpZ7sFT2F0Fww5vxnmgcfVFiqrERQquXS9p9RBImeOwAfw-CYwHqAJfX316v/s6240/IMG_0477.jpeg" alt="Sushi de Carrazera" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🍣</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Sushi de Carrazera</h3><span class="font-montserrat text-xl ml-4">R$ 34,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Sushi crocante com massa de macaxeira, cubos de charque e carne de sol servido com molho de rapadura</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGrDHT88t5yzUcM1dzqjKzB78qlrBDGi1fRAxgYAcz1e_iBtvgLyUiDsfi0GLkDnTlulBKpb2xd2J42NRTGM1yvSDyIIAzfJ3lh9OaWJwFOLnJdz8r0OArImfuIgFoHH32rKsxR9zJ0aCpvc92ATVhU8tBMUiJuGGeeBvqMVKN_SluQSvj3UrPLD25xdWs/w1684-h1069-p-k-no-nu/IMG_0581.jpeg" alt="Isca de Tucunaré" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🐟</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Isca de Tucunaré</h3><span class="font-montserrat text-xl ml-4">R$ 32,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Tiras de tucunaré à milanesa servido com molho rosé</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0bV_3PCc6Rdh4XYzdI3XEQwi3yyISCANNd9UJqPlUN9MUPjovfwxUDoUlVFVF4i1vYCAZ9toW5dGoHqR-otUwaDer6AWr3prY18y_1oquOzZGmIj5tqI_L8JvZtcBcvHG8SY2AwP3p1uwXpm4gvP22jxoqfz0RNBa_FyafEGO9MlQKxhddvgYu-YbSxtR/s1320/IMG_0583.jpeg" alt="Ai meu coração" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>❤️</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Ai meu coração</h3><span class="font-montserrat text-xl ml-4">R$ 39,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Coração de galinha marinado no shoyu salteado no molho oriental e servido com chips de macaxeira</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRA9Z7cG17Y6P9hzQNsWSPZcb8xT4WRMd-usR4aU_kwR_T8xqCGAfVnOmxG5RMe6G75Xng91Hz2wO411uLM8Kx_xvbH6lyG2SAl8dAqj2-dOD7s29_DL-zv6VsM3a_nShuyOtBU7oiApMxo60l-E94xbae68aqGTanQklI_VefU8JDmw2zaem4Kjgn41Gx/s3888/IMG_0481.jpeg" alt="Filé no Panne" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🥩</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Filé no Panne</h3><span class="font-montserrat text-xl ml-4">R$ 79,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Tiras de filé mignon salteadas com creme de gorgonzola servido no pão italiano quentinho</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0" style="background: none; overflow: hidden;"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpn4qEDPVB-xjJAYw8-VTWe0Iu_zC7PEchdHyLoN-Wgo4wGzty7PKluFAA7FWYwtOHv6oAgkimXwEdwiRZzOCcknmog5F3ElkfwyBCr8AnlI5iKw8FGNk2LbFlUXCCfsKXcI_Nqh86OveUFI1-qOnKUd9VU9dFTkwMbWPEMP24ZOpSZuF1E1ZO1kZQ2Mvy/s1434/IMG_0582.jpeg" alt="Camarão alho e óleo" class="zoomable-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'dish-placeholder\'>🦐</div>';">
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Camarão alho e óleo</h3><span class="font-montserrat text-xl ml-4">R$ 59,90</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Camarão com cascas salteado no azeite de oliva, alho e limão</p>
+       </div>
+      </div>
+     </div>
     </section>
-    <section class="category-section">
-     <header class="category-header">
-      <h2 class="category-title" id="mainCoursesTitle">Pratos Principais</h2><button class="add-item-btn" onclick="openItemModal('mainCourses')">+ Adicionar Prato</button>
-     </header>
-     <div class="items-grid" id="mainCoursesGrid"></div>
+    <div class="section-divider"></div><!-- Pratos Principais -->
+    <section class="mb-16">
+     <h2 id="principais-title" class="font-playfair text-4xl font-semibold text-center mb-12 gold-gradient">Pratos Principais</h2>
+     <div class="space-y-8">
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0">
+        <div class="dish-placeholder">
+         🥩
+        </div>
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Wagyu A5 Japon����s</h3><span class="font-montserrat text-xl ml-4">R$ 280</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">250g de Wagyu grelhado ao ponto, acompanhado de purê de batata trufado e aspargos grelhados</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0">
+        <div class="dish-placeholder">
+         🐟
+        </div>
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Robalo ao Molho de Champagne</h3><span class="font-montserrat text-xl ml-4">R$ 165</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Filé de robalo com crosta de ervas, molho de champagne, risoto de limão siciliano e legumes baby</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0">
+        <div class="dish-placeholder">
+         ����
+        </div>
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Cordeiro Wellington</h3><span class="font-montserrat text-xl ml-4">R$ 195</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Rack de cordeiro em crosta de massa folhada, duxelles de cogumelos selvagens e molho de vinho tinto</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0">
+        <div class="dish-placeholder">
+         🦆
+        </div>
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Pato Laqueado</h3><span class="font-montserrat text-xl ml-4">R$ 158</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Magret de pato laqueado com mel e especiarias, purê de maçã verde e batatas fondant</p>
+       </div>
+      </div>
+     </div>
     </section>
-    <section class="category-section">
-     <header class="category-header">
-      <h2 class="category-title" id="pastaTitle">Massas Especiais</h2><button class="add-item-btn" onclick="openItemModal('pasta')">+ Adicionar Prato</button>
-     </header>
-     <div class="items-grid" id="pastaGrid"></div>
+    <div class="section-divider"></div><!-- Sobremesas -->
+    <section class="mb-16">
+     <h2 id="sobremesas-title" class="font-playfair text-4xl font-semibold text-center mb-12 gold-gradient">Sobremesas</h2>
+     <div class="space-y-8">
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0">
+        <div class="dish-placeholder">
+         🍐
+        </div>
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Tarte Tatin de Pêra</h3><span class="font-montserrat text-xl ml-4">R$ 42</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Tarte invertida de pêra caramelizada, sorvete de baunilha de Madagascar e calda de caramelo</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0">
+        <div class="dish-placeholder">
+         🍫
+        </div>
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Mousse de Chocolate Valrhona</h3><span class="font-montserrat text-xl ml-4">R$ 38</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Mousse aerada de chocolate 70% cacau, crocante de avelã e raspas de ouro comestível</p>
+       </div>
+      </div>
+      <div class="menu-item flex gap-6 items-start">
+       <div class="dish-image flex-shrink-0">
+        <div class="dish-placeholder">
+         ����
+        </div>
+       </div>
+       <div class="flex-grow">
+        <div class="flex justify-between items-start mb-2">
+         <h3 class="font-playfair text-2xl font-semibold">Crème Brûlée de Pistache</h3><span class="font-montserrat text-xl ml-4">R$ 36</span>
+        </div>
+        <p class="font-montserrat text-sm font-light leading-relaxed opacity-80">Creme queimado de pistache siciliano com açúcar caramelizado e sorvete de flor de laranjeira</p>
+       </div>
+      </div>
+     </div>
     </section>
-    <section class="category-section">
-     <header class="category-header">
-      <h2 class="category-title" id="dessertsTitle">Sobremesas</h2><button class="add-item-btn" onclick="openItemModal('desserts')">+ Adicionar Prato</button>
-     </header>
-     <div class="items-grid" id="dessertsGrid"></div>
-    </section>
-    <section class="category-section">
-     <header class="category-header">
-      <h2 class="category-title" id="beveragesTitle">Carta de Vinhos &amp; Bebidas</h2><button class="add-item-btn" onclick="openItemModal('beverages')">+ Adicionar Prato</button>
-     </header>
-     <div class="items-grid" id="beveragesGrid"></div>
-    </section>
-   </main>
-   <footer class="footer" id="footer">
-    <p>© 2024 La Dolce Vita. Todos os direitos reservados.</p>
+   </div><!-- Footer -->
+   <footer class="text-center py-12 border-t border-opacity-20" style="position: relative; z-index: 1;">
+    <p id="footer-text" class="font-montserrat text-sm tracking-wider opacity-60">Chef Executivo: Alexandre Dubois | Reservas: (11) 3456-7890</p>
    </footer>
-  </div><button class="admin-btn" id="adminBtn" title="Editar Cardápio">⚙️</button>
-  <div class="edit-modal" id="settingsModal">
-   <div class="edit-panel">
-    <h2>Configurações do Cardápio</h2>
-    <div class="edit-section">
-     <h3>Cabeçalho</h3>
-     <div class="edit-field"><label for="editRestaurantName">Nome do Restaurante</label> <input type="text" id="editRestaurantName" placeholder="Nome do seu restaurante">
-     </div>
-     <div class="edit-field"><label for="editRestaurantTagline">Slogan</label> <input type="text" id="editRestaurantTagline" placeholder="Slogan do restaurante">
-     </div>
-    </div>
-    <div class="edit-section">
-     <h3>Seções do Cardápio</h3>
-     <div class="edit-field"><label for="editAppetizers">Título Entradas</label> <input type="text" id="editAppetizers">
-     </div>
-     <div class="edit-field"><label for="editMainCourses">Título Pratos Principais</label> <input type="text" id="editMainCourses">
-     </div>
-     <div class="edit-field"><label for="editPasta">Título Massas</label> <input type="text" id="editPasta">
-     </div>
-     <div class="edit-field"><label for="editDesserts">Título Sobremesas</label> <input type="text" id="editDesserts">
-     </div>
-     <div class="edit-field"><label for="editBeverages">Título Bebidas</label> <input type="text" id="editBeverages">
-     </div>
-    </div>
-    <div class="edit-actions"><button class="edit-btn cancel" onclick="closeSettingsModal()">Cancelar</button> <button class="edit-btn save" onclick="saveSettings()">Salvar Alterações</button>
-    </div>
-   </div>
-  </div>
-  <div class="edit-modal" id="itemModal">
-   <div class="edit-panel">
-    <h2 id="itemModalTitle">Adicionar Prato</h2>
-    <div class="edit-section">
-     <div class="edit-field"><label for="itemName">Nome do Prato</label> <input type="text" id="itemName" placeholder="Ex: Fettuccine al Tartufo">
-     </div>
-     <div class="edit-field"><label for="itemPrice">Preço</label> <input type="text" id="itemPrice" placeholder="Ex: R$ 115,00">
-     </div>
-     <div class="edit-field"><label for="itemDescription">Descrição</label> <textarea id="itemDescription" placeholder="Descreva o prato"></textarea>
-     </div>
-     <div class="edit-field"><label for="itemImageUrl">URL da Imagem (opcional)</label> <input type="text" id="itemImageUrl" placeholder="https://exemplo.com/imagem.jpg">
-     </div>
-     <div class="edit-field"><label for="itemTags">Tags (separadas por vírgula)</label> <input type="text" id="itemTags" placeholder="Ex: Premium, Vegetariano, Chef">
-     </div>
-     <div class="edit-field"><label for="itemCategory">Categoria</label> <select id="itemCategory"> <option value="appetizers">Entradas</option> <option value="mainCourses">Pratos Principais</option> <option value="pasta">Massas</option> <option value="desserts">Sobremesas</option> <option value="beverages">Bebidas</option> </select>
-     </div>
-    </div>
-    <div class="edit-actions"><button class="edit-btn cancel" onclick="closeItemModal()">Cancelar</button> <button class="edit-btn save" id="saveItemBtn" onclick="saveItem()">Salvar Prato</button>
-    </div>
-   </div>
-  </div>
-  <div class="toast" id="toast"></div>
-  <div class="edit-modal" id="passwordModal">
-   <div class="edit-panel" style="max-width: 400px;">
-    <h2>🔒 Acesso Administrativo</h2>
-    <div class="edit-section">
-     <div class="edit-field"><label for="adminPassword">Digite a senha de administrador</label> <input type="password" id="adminPassword" placeholder="����•••••••" autocomplete="off">
-     </div>
-    </div>
-    <div class="edit-actions"><button class="edit-btn cancel" onclick="closePasswordModal()">Cancelar</button> <button class="edit-btn save" onclick="verifyPassword()">Entrar</button>
-    </div>
-   </div>
   </div>
   <script>
     const defaultConfig = {
-      background_color: "#000000",
-      card_background: "#1a1a1a",
-      text_color: "#e8e8e8",
-      accent_color: "#c9a05f",
-      tag_color: "#c9a05f",
-      restaurant_name: "Cardápio invó",
-      restaurant_tagline: "Descubra sabores únicos e pratos especiais preparados com carinho",
-      appetizers_title: "Entradas",
-      main_courses_title: "Pratos Principais",
-      pasta_title: "Massas Especiais",
-      desserts_title: "Sobremesas",
-      beverages_title: "Carta de Vinhos & Bebidas",
-      font_family: "Lato",
-      font_size: 16
+      background_color: "#0a0a0a",
+      text_color: "#ffffff",
+      accent_color: "#9d7a3a",
+      border_color: "#2a2a2a",
+      font_family: "Playfair Display",
+      font_size: 16,
+      restaurant_name: "Invó",
+      restaurant_tagline: "Comida gostosa do jeitin do abraço de vó",
+      entradas_title: "Entradas",
+      principais_title: "Pratos Principais",
+      sobremesas_title: "Sobremesas",
+      footer_text: "Chef Executivo: Alexandre Dubois | Reservas: (11) 3456-7890"
     };
-
-    let allMenuItems = [];
-    let editingItemId = null;
-    let currentCategory = null;
-    let searchTerm = '';
-    let isAdminAuthenticated = false;
-
-    function showToast(message, isError = false) {
-      const toast = document.getElementById('toast');
-      toast.textContent = message;
-      toast.className = 'toast show' + (isError ? ' error' : '');
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 3000);
-    }
-
-    function createMenuItem(item, colors, baseSize) {
-      const card = document.createElement('div');
-      card.className = 'menu-item';
-      card.style.backgroundColor = colors.card_background;
-      card.style.borderColor = `${colors.accent_color}20`;
-      card.dataset.itemId = item.id || item.__backendId;
-      
-      const actions = document.createElement('div');
-      actions.className = 'item-actions';
-      actions.style.display = isAdminAuthenticated ? 'flex' : 'none';
-      actions.innerHTML = `
-        <button class="item-action-btn edit-item-btn" onclick="editItem('${item.__backendId || item.id}')" title="Editar">✏️</button>
-        <button class="item-action-btn delete-item-btn" onclick="deleteItem('${item.__backendId || item.id}')" title="Excluir">🗑️</button>
-      `;
-      
-      const imageDiv = document.createElement('div');
-      imageDiv.className = 'item-image';
-      
-      if (item.image_url) {
-        const img = document.createElement('img');
-        img.src = item.image_url;
-        img.alt = item.name;
-        img.onerror = function() {
-          this.src = '';
-          this.alt = 'Imagem não disponível';
-          this.style.display = 'none';
-          imageDiv.style.backgroundColor = 'rgba(255,255,255,0.03)';
-          imageDiv.innerHTML += '<div style="color: rgba(232,232,232,0.3); font-size: 14px;">🖼️<br>Sem imagem</div>';
-        };
-        imageDiv.appendChild(img);
-      } else {
-        imageDiv.style.backgroundColor = 'rgba(255,255,255,0.03)';
-        imageDiv.innerHTML = '<div style="color: rgba(232,232,232,0.3); font-size: 14px;">🖼️<br>Sem imagem</div>';
-      }
-      
-      const content = document.createElement('div');
-      content.className = 'item-content';
-      
-      const header = document.createElement('div');
-      header.className = 'item-header';
-      
-      const name = document.createElement('h3');
-      name.className = 'item-name';
-      name.textContent = item.name;
-      name.style.color = colors.text_color;
-      name.style.fontSize = `${baseSize * 1.5}px`;
-      
-      const price = document.createElement('div');
-      price.className = 'item-price';
-      price.textContent = item.price;
-      price.style.color = colors.accent_color;
-      price.style.fontSize = `${baseSize * 1.25}px`;
-      
-      header.appendChild(name);
-      header.appendChild(price);
-      
-      const description = document.createElement('p');
-      description.className = 'item-description';
-      description.textContent = item.description;
-      description.style.color = colors.text_color;
-      description.style.fontSize = `${baseSize * 0.8125}px`;
-      
-      const tags = document.createElement('div');
-      tags.className = 'item-tags';
-      
-      if (item.tags) {
-        const tagList = typeof item.tags === 'string' ? item.tags.split(',').map(t => t.trim()) : item.tags;
-        tagList.forEach(tagText => {
-          if (tagText) {
-            const tag = document.createElement('span');
-            tag.className = 'tag';
-            tag.textContent = tagText;
-            tag.style.borderColor = colors.tag_color;
-            tag.style.color = colors.tag_color;
-            tag.style.fontSize = `${baseSize * 0.625}px`;
-            tags.appendChild(tag);
-          }
-        });
-      }
-      
-      content.appendChild(header);
-      content.appendChild(description);
-      content.appendChild(tags);
-      
-      card.appendChild(actions);
-      card.appendChild(imageDiv);
-      card.appendChild(content);
-      
-      return card;
-    }
 
     async function onConfigChange(config) {
-      const colors = {
-        background_color: config.background_color || defaultConfig.background_color,
-        card_background: config.card_background || defaultConfig.card_background,
-        text_color: config.text_color || defaultConfig.text_color,
-        accent_color: config.accent_color || defaultConfig.accent_color,
-        tag_color: config.tag_color || defaultConfig.tag_color
-      };
+      const bg = config.background_color || defaultConfig.background_color;
+      const text = config.text_color || defaultConfig.text_color;
+      const accent = config.accent_color || defaultConfig.accent_color;
+      const border = config.border_color || defaultConfig.border_color;
+      const fontFamily = config.font_family || defaultConfig.font_family;
+      const fontSize = config.font_size || defaultConfig.font_size;
+
+      // Apply colors
+      document.getElementById('app').style.backgroundColor = bg;
+      document.getElementById('app').style.color = text;
       
-      const customFont = config.font_family || defaultConfig.font_family;
-      const baseFontSize = config.font_size || defaultConfig.font_size;
-      const bodyFontStack = `${customFont}, 'Lato', sans-serif`;
-      const titleFontStack = `${customFont}, 'Cormorant Garamond', serif`;
-      
-      document.body.style.fontFamily = bodyFontStack;
-      document.body.style.fontSize = `${baseFontSize}px`;
-      
-      const menuContainer = document.getElementById('menuContainer');
-      menuContainer.style.backgroundColor = colors.background_color;
-      
-      const heroSection = document.getElementById('heroSection');
-      heroSection.style.backgroundColor = colors.background_color;
-      
-      const restaurantName = document.getElementById('restaurantName');
-      restaurantName.textContent = config.restaurant_name || defaultConfig.restaurant_name;
-      restaurantName.style.color = colors.accent_color;
-      restaurantName.style.fontFamily = titleFontStack;
-      restaurantName.style.fontSize = `${baseFontSize * 3.5}px`;
-      
-      const restaurantTagline = document.getElementById('restaurantTagline');
-      restaurantTagline.textContent = config.restaurant_tagline || defaultConfig.restaurant_tagline;
-      restaurantTagline.style.color = colors.text_color;
-      restaurantTagline.style.fontSize = `${baseFontSize * 0.875}px`;
-      
-      const heroDivider = document.getElementById('heroDivider');
-      heroDivider.style.background = `linear-gradient(180deg, transparent, ${colors.accent_color}, transparent)`;
-      
-      const categoryTitles = [
-        { el: document.getElementById('appetizersTitle'), key: 'appetizers_title' },
-        { el: document.getElementById('mainCoursesTitle'), key: 'main_courses_title' },
-        { el: document.getElementById('pastaTitle'), key: 'pasta_title' },
-        { el: document.getElementById('dessertsTitle'), key: 'desserts_title' },
-        { el: document.getElementById('beveragesTitle'), key: 'beverages_title' }
-      ];
-      
-      categoryTitles.forEach(({ el, key }) => {
-        el.textContent = config[key] || defaultConfig[key];
-        el.style.color = colors.accent_color;
-        el.style.fontFamily = titleFontStack;
-        el.style.fontSize = `${baseFontSize * 2.625}px`;
+      // Update accent colors
+      document.querySelectorAll('.gold-gradient').forEach(el => {
+        el.style.background = `linear-gradient(135deg, ${accent} 0%, ${adjustBrightness(accent, 30)} 50%, ${accent} 100%)`;
+        el.style.webkitBackgroundClip = 'text';
+        el.style.webkitTextFillColor = 'transparent';
+        el.style.backgroundClip = 'text';
       });
-      
-      const footer = document.getElementById('footer');
-      footer.style.backgroundColor = colors.card_background;
-      footer.style.color = colors.text_color;
-      footer.style.fontSize = `${baseFontSize * 0.6875}px`;
-      
-      renderMenuItems(colors, baseFontSize);
-    }
 
-    function filterItemsBySearch(items) {
-      if (!searchTerm) return items;
-      
-      const term = searchTerm.toLowerCase();
-      return items.filter(item => {
-        const nameMatch = item.name.toLowerCase().includes(term);
-        const descMatch = item.description.toLowerCase().includes(term);
-        const tagsMatch = item.tags && item.tags.toLowerCase().includes(term);
-        const priceMatch = item.price.toLowerCase().includes(term);
-        
-        return nameMatch || descMatch || tagsMatch || priceMatch;
+      document.querySelectorAll('.ornament').forEach(el => {
+        el.style.background = `linear-gradient(90deg, transparent, ${accent}, transparent)`;
       });
-    }
 
-    function renderMenuItems(colors, baseSize) {
-      const categories = {
-        appetizers: document.getElementById('appetizersGrid'),
-        mainCourses: document.getElementById('mainCoursesGrid'),
-        pasta: document.getElementById('pastaGrid'),
-        desserts: document.getElementById('dessertsGrid'),
-        beverages: document.getElementById('beveragesGrid')
-      };
-      
-      let totalResults = 0;
-      
-      Object.keys(categories).forEach(category => {
-        const grid = categories[category];
-        const section = grid.closest('.category-section');
-        grid.innerHTML = '';
-        
-        const categoryItems = allMenuItems.filter(item => item.category === category);
-        const filteredItems = filterItemsBySearch(categoryItems);
-        
-        totalResults += filteredItems.length;
-        
-        if (searchTerm && filteredItems.length === 0) {
-          section.style.display = 'none';
-        } else {
-          section.style.display = 'block';
-          
-          if (filteredItems.length === 0) {
-            const emptyState = document.createElement('div');
-            emptyState.className = 'empty-state';
-            emptyState.innerHTML = '<div class="empty-state-icon">🍽️</div><p>Nenhum prato adicionado ainda</p>';
-            grid.appendChild(emptyState);
-          } else {
-            filteredItems.forEach(item => {
-              grid.appendChild(createMenuItem(item, colors, baseSize));
-            });
-          }
-        }
+      document.querySelectorAll('.section-divider').forEach(el => {
+        el.style.background = `linear-gradient(90deg, transparent, ${accent}, transparent)`;
       });
-      
-      updateSearchResults(totalResults);
-    }
-    
-    function updateSearchResults(count) {
-      let existingInfo = document.querySelector('.search-results-info');
-      
-      if (searchTerm) {
-        if (!existingInfo) {
-          existingInfo = document.createElement('div');
-          existingInfo.className = 'search-results-info';
-          const menuContent = document.querySelector('.menu-content');
-          menuContent.insertBefore(existingInfo, menuContent.firstChild);
-        }
-        
-        if (count === 0) {
-          existingInfo.innerHTML = `🔍 Nenhum resultado encontrado para "<span class="highlight">${searchTerm}</span>"`;
-        } else {
-          existingInfo.innerHTML = `🔍 ${count} ${count === 1 ? 'resultado encontrado' : 'resultados encontrados'} para "<span class="highlight">${searchTerm}</span>"`;
-        }
-      } else {
-        if (existingInfo) {
-          existingInfo.remove();
-        }
-      }
+
+      document.querySelectorAll('.dish-image').forEach(el => {
+        el.style.borderColor = accent;
+      });
+
+      document.querySelectorAll('.menu-item').forEach(el => {
+        el.addEventListener('mouseenter', function() {
+          this.style.borderLeftColor = accent;
+        });
+        el.addEventListener('mouseleave', function() {
+          this.style.borderLeftColor = 'transparent';
+        });
+      });
+
+      const footerBorder = document.querySelector('footer');
+      footerBorder.style.borderTopColor = border;
+
+      // Apply font
+      document.querySelectorAll('.font-playfair').forEach(el => {
+        el.style.fontFamily = `${fontFamily}, Playfair Display, serif`;
+      });
+
+      // Apply font sizes
+      document.getElementById('restaurant-name').style.fontSize = `${fontSize * 4.375}px`;
+      document.getElementById('restaurant-tagline').style.fontSize = `${fontSize * 1.25}px`;
+      document.querySelectorAll('section h2').forEach(el => {
+        el.style.fontSize = `${fontSize * 2.5}px`;
+      });
+      document.querySelectorAll('.menu-item h3').forEach(el => {
+        el.style.fontSize = `${fontSize * 1.5}px`;
+      });
+      document.querySelectorAll('.menu-item span').forEach(el => {
+        el.style.fontSize = `${fontSize * 1.25}px`;
+      });
+      document.querySelectorAll('.menu-item p').forEach(el => {
+        el.style.fontSize = `${fontSize * 0.875}px`;
+      });
+      document.getElementById('footer-text').style.fontSize = `${fontSize * 0.875}px`;
+
+      // Update text content
+      document.getElementById('restaurant-name').textContent = config.restaurant_name || defaultConfig.restaurant_name;
+      document.getElementById('restaurant-tagline').textContent = config.restaurant_tagline || defaultConfig.restaurant_tagline;
+      document.getElementById('entradas-title').textContent = config.entradas_title || defaultConfig.entradas_title;
+      document.getElementById('principais-title').textContent = config.principais_title || defaultConfig.principais_title;
+      document.getElementById('sobremesas-title').textContent = config.sobremesas_title || defaultConfig.sobremesas_title;
+      document.getElementById('footer-text').textContent = config.footer_text || defaultConfig.footer_text;
     }
 
-    function openPasswordModal() {
-      document.getElementById('adminPassword').value = '';
-      document.getElementById('passwordModal').classList.add('active');
-      setTimeout(() => document.getElementById('adminPassword').focus(), 100);
-    }
-    
-    function closePasswordModal() {
-      document.getElementById('passwordModal').classList.remove('active');
-    }
-    
-    function verifyPassword() {
-      const password = document.getElementById('adminPassword').value;
-      const correctPassword = '96439129';
-      
-      if (password === correctPassword) {
-        isAdminAuthenticated = true;
-        closePasswordModal();
-        showToast('✅ Acesso administrativo concedido!');
-        updateAdminUI();
-      } else {
-        showToast('❌ Senha incorreta. Tente novamente.', true);
-        document.getElementById('adminPassword').value = '';
-        document.getElementById('adminPassword').focus();
-      }
-    }
-    
-    function updateAdminUI() {
-      const addButtons = document.querySelectorAll('.add-item-btn');
-      const itemActions = document.querySelectorAll('.item-actions');
-      const adminBtn = document.getElementById('adminBtn');
-      
-      if (isAdminAuthenticated) {
-        addButtons.forEach(btn => btn.style.display = 'block');
-        itemActions.forEach(actions => actions.style.display = 'flex');
-        adminBtn.style.background = 'rgba(201, 160, 95, 0.25)';
-        adminBtn.style.borderColor = 'rgba(201, 160, 95, 0.5)';
-        adminBtn.style.color = '#c9a05f';
-      } else {
-        addButtons.forEach(btn => btn.style.display = 'none');
-        itemActions.forEach(actions => actions.style.display = 'none');
-        adminBtn.style.background = 'rgba(201, 160, 95, 0.15)';
-        adminBtn.style.borderColor = 'rgba(201, 160, 95, 0.3)';
-        adminBtn.style.color = 'rgba(201, 160, 95, 0.6)';
-      }
+    function adjustBrightness(color, percent) {
+      const num = parseInt(color.replace("#", ""), 16);
+      const amt = Math.round(2.55 * percent);
+      const R = (num >> 16) + amt;
+      const G = (num >> 8 & 0x00FF) + amt;
+      const B = (num & 0x0000FF) + amt;
+      return "#" + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
+        (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
+        (B < 255 ? B < 1 ? 0 : B : 255))
+        .toString(16).slice(1);
     }
 
-    function openSettingsModal() {
-      if (!isAdminAuthenticated) {
-        openPasswordModal();
-        return;
-      }
-      
-      const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
-      
-      document.getElementById('editRestaurantName').value = config.restaurant_name || defaultConfig.restaurant_name;
-      document.getElementById('editRestaurantTagline').value = config.restaurant_tagline || defaultConfig.restaurant_tagline;
-      document.getElementById('editAppetizers').value = config.appetizers_title || defaultConfig.appetizers_title;
-      document.getElementById('editMainCourses').value = config.main_courses_title || defaultConfig.main_courses_title;
-      document.getElementById('editPasta').value = config.pasta_title || defaultConfig.pasta_title;
-      document.getElementById('editDesserts').value = config.desserts_title || defaultConfig.desserts_title;
-      document.getElementById('editBeverages').value = config.beverages_title || defaultConfig.beverages_title;
-      
-      document.getElementById('settingsModal').classList.add('active');
-    }
-    
-    function closeSettingsModal() {
-      document.getElementById('settingsModal').classList.remove('active');
-    }
-    
-    function saveSettings() {
-      const newConfig = {
-        restaurant_name: document.getElementById('editRestaurantName').value,
-        restaurant_tagline: document.getElementById('editRestaurantTagline').value,
-        appetizers_title: document.getElementById('editAppetizers').value,
-        main_courses_title: document.getElementById('editMainCourses').value,
-        pasta_title: document.getElementById('editPasta').value,
-        desserts_title: document.getElementById('editDesserts').value,
-        beverages_title: document.getElementById('editBeverages').value
-      };
-      
-      if (window.elementSdk) {
-        window.elementSdk.setConfig(newConfig);
-      }
-      
-      closeSettingsModal();
-      showToast('Configurações salvas com sucesso!');
-    }
-
-    function openItemModal(category) {
-      if (!isAdminAuthenticated) {
-        openPasswordModal();
-        return;
-      }
-      
-      editingItemId = null;
-      currentCategory = category;
-      
-      document.getElementById('itemModalTitle').textContent = 'Adicionar Prato';
-      document.getElementById('itemName').value = '';
-      document.getElementById('itemPrice').value = '';
-      document.getElementById('itemDescription').value = '';
-      document.getElementById('itemImageUrl').value = '';
-      document.getElementById('itemTags').value = '';
-      document.getElementById('itemCategory').value = category;
-      
-      document.getElementById('itemModal').classList.add('active');
-    }
-
-    function closeItemModal() {
-      document.getElementById('itemModal').classList.remove('active');
-      editingItemId = null;
-      currentCategory = null;
-    }
-
-    async function saveItem() {
-      if (allMenuItems.length >= 999 && !editingItemId) {
-        showToast('Limite máximo de 999 pratos atingido. Exclua alguns pratos primeiro.', true);
-        return;
-      }
-
-      const name = document.getElementById('itemName').value.trim();
-      const price = document.getElementById('itemPrice').value.trim();
-      const description = document.getElementById('itemDescription').value.trim();
-      const imageUrl = document.getElementById('itemImageUrl').value.trim();
-      const tags = document.getElementById('itemTags').value.trim();
-      const category = document.getElementById('itemCategory').value;
-      
-      if (!name || !price || !description) {
-        showToast('Por favor, preencha todos os campos obrigatórios', true);
-        return;
-      }
-      
-      const saveBtn = document.getElementById('saveItemBtn');
-      saveBtn.disabled = true;
-      saveBtn.innerHTML = '<span class="loading-spinner"></span>Salvando...';
-      
-      const itemData = {
-        name,
-        price,
-        description,
-        image_url: imageUrl,
-        tags,
-        category,
-        created_at: new Date().toISOString()
-      };
-      
-      if (editingItemId) {
-        const existingItem = allMenuItems.find(item => item.__backendId === editingItemId);
-        if (existingItem) {
-          const updatedItem = { ...existingItem, ...itemData };
-          const result = await window.dataSdk.update(updatedItem);
-          
-          if (result.isOk) {
-            showToast('Prato atualizado com sucesso!');
-            closeItemModal();
-          } else {
-            showToast('Erro ao atualizar prato: ' + result.error.message, true);
-          }
-        }
-      } else {
-        if (!category) {
-          itemData.category = currentCategory;
-        }
-        itemData.id = Date.now().toString() + Math.random().toString(36).substr(2, 9);
-        
-        const result = await window.dataSdk.create(itemData);
-        
-        if (result.isOk) {
-          showToast('Prato adicionado com sucesso!');
-          closeItemModal();
-        } else {
-          showToast('Erro ao adicionar prato: ' + result.error.message, true);
-        }
-      }
-      
-      saveBtn.disabled = false;
-      saveBtn.textContent = 'Salvar Prato';
-    }
-
-    async function editItem(itemId) {
-      if (!isAdminAuthenticated) {
-        openPasswordModal();
-        return;
-      }
-      
-      const item = allMenuItems.find(i => i.__backendId === itemId);
-      if (!item) return;
-      
-      editingItemId = itemId;
-      
-      document.getElementById('itemModalTitle').textContent = 'Editar Prato';
-      document.getElementById('itemName').value = item.name || '';
-      document.getElementById('itemPrice').value = item.price || '';
-      document.getElementById('itemDescription').value = item.description || '';
-      document.getElementById('itemImageUrl').value = item.image_url || '';
-      document.getElementById('itemTags').value = item.tags || '';
-      document.getElementById('itemCategory').value = item.category || 'appetizers';
-      
-      document.getElementById('itemModal').classList.add('active');
-    }
-
-    async function deleteItem(itemId) {
-      if (!isAdminAuthenticated) {
-        openPasswordModal();
-        return;
-      }
-      
-      const item = allMenuItems.find(i => i.__backendId === itemId);
-      if (!item) return;
-      
-      const card = document.querySelector(`[data-item-id="${itemId}"]`);
-      if (!card) return;
-      
-      const deleteBtn = card.querySelector('.delete-item-btn');
-      const originalContent = deleteBtn.innerHTML;
-      
-      deleteBtn.innerHTML = '✓';
-      deleteBtn.onclick = null;
-      
-      setTimeout(async () => {
-        const result = await window.dataSdk.delete(item);
-        
-        if (result.isOk) {
-          showToast('Prato excluído com sucesso!');
-        } else {
-          showToast('Erro ao excluir prato: ' + result.error.message, true);
-          deleteBtn.innerHTML = originalContent;
-          deleteBtn.onclick = () => deleteItem(itemId);
-        }
-      }, 1000);
-    }
-
-    document.getElementById('adminBtn').addEventListener('click', openSettingsModal);
-    
-    document.getElementById('settingsModal').addEventListener('click', (e) => {
-      if (e.target.id === 'settingsModal') closeSettingsModal();
-    });
-    
-    document.getElementById('itemModal').addEventListener('click', (e) => {
-      if (e.target.id === 'itemModal') closeItemModal();
-    });
-    
-    document.getElementById('passwordModal').addEventListener('click', (e) => {
-      if (e.target.id === 'passwordModal') closePasswordModal();
-    });
-    
-    document.getElementById('adminPassword').addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        verifyPassword();
-      }
-    });
-    
-    const searchInput = document.getElementById('searchInput');
-    const searchClear = document.getElementById('searchClear');
-    
-    searchInput.addEventListener('input', (e) => {
-      searchTerm = e.target.value.trim();
-      
-      if (searchTerm) {
-        searchClear.style.display = 'flex';
-      } else {
-        searchClear.style.display = 'none';
-      }
-      
-      const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
-      const colors = {
-        background_color: config.background_color || defaultConfig.background_color,
-        card_background: config.card_background || defaultConfig.card_background,
-        text_color: config.text_color || defaultConfig.text_color,
-        accent_color: config.accent_color || defaultConfig.accent_color,
-        tag_color: config.tag_color || defaultConfig.tag_color
-      };
-      const baseFontSize = config.font_size || defaultConfig.font_size;
-      
-      renderMenuItems(colors, baseFontSize);
-    });
-    
-    searchClear.addEventListener('click', () => {
-      searchInput.value = '';
-      searchTerm = '';
-      searchClear.style.display = 'none';
-      
-      const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
-      const colors = {
-        background_color: config.background_color || defaultConfig.background_color,
-        card_background: config.card_background || defaultConfig.card_background,
-        text_color: config.text_color || defaultConfig.text_color,
-        accent_color: config.accent_color || defaultConfig.accent_color,
-        tag_color: config.tag_color || defaultConfig.tag_color
-      };
-      const baseFontSize = config.font_size || defaultConfig.font_size;
-      
-      renderMenuItems(colors, baseFontSize);
-      searchInput.focus();
-    });
-
-    const dataHandler = {
-      onDataChanged(data) {
-        allMenuItems = data;
-        
-        const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
-        const colors = {
-          background_color: config.background_color || defaultConfig.background_color,
-          card_background: config.card_background || defaultConfig.card_background,
-          text_color: config.text_color || defaultConfig.text_color,
-          accent_color: config.accent_color || defaultConfig.accent_color,
-          tag_color: config.tag_color || defaultConfig.tag_color
-        };
-        const baseFontSize = config.font_size || defaultConfig.font_size;
-        
-        renderMenuItems(colors, baseFontSize);
-      }
-    };
-
-    (async function init() {
-      updateAdminUI();
-      
-      if (window.dataSdk) {
-        const result = await window.dataSdk.init(dataHandler);
-        if (!result.isOk) {
-          console.error('Erro ao inicializar Data SDK:', result.error);
-          showToast('Erro ao carregar dados do cardápio', true);
-        }
-      }
-
-      if (window.elementSdk) {
-        window.elementSdk.init({
-          defaultConfig,
-          onConfigChange,
-          mapToCapabilities: (config) => ({
-            recolorables: [
-              {
-                get: () => config.background_color || defaultConfig.background_color,
-                set: (value) => {
-                  config.background_color = value;
-                  window.elementSdk.setConfig({ background_color: value });
-                }
-              },
-              {
-                get: () => config.card_background || defaultConfig.card_background,
-                set: (value) => {
-                  config.card_background = value;
-                  window.elementSdk.setConfig({ card_background: value });
-                }
-              },
-              {
-                get: () => config.text_color || defaultConfig.text_color,
-                set: (value) => {
-                  config.text_color = value;
-                  window.elementSdk.setConfig({ text_color: value });
-                }
-              },
-              {
-                get: () => config.accent_color || defaultConfig.accent_color,
-                set: (value) => {
-                  config.accent_color = value;
-                  window.elementSdk.setConfig({ accent_color: value });
-                }
-              },
-              {
-                get: () => config.tag_color || defaultConfig.tag_color,
-                set: (value) => {
-                  config.tag_color = value;
-                  window.elementSdk.setConfig({ tag_color: value });
-                }
-              }
-            ],
-            borderables: [],
-            fontEditable: {
-              get: () => config.font_family || defaultConfig.font_family,
-              set: (value) => {
-                config.font_family = value;
-                window.elementSdk.setConfig({ font_family: value });
-              }
-            },
-            fontSizeable: {
-              get: () => config.font_size || defaultConfig.font_size,
-              set: (value) => {
-                config.font_size = value;
-                window.elementSdk.setConfig({ font_size: value });
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ background_color: value });
               }
             }
-          }),
-          mapToEditPanelValues: (config) => new Map([
-            ["restaurant_name", config.restaurant_name || defaultConfig.restaurant_name],
-            ["restaurant_tagline", config.restaurant_tagline || defaultConfig.restaurant_tagline],
-            ["appetizers_title", config.appetizers_title || defaultConfig.appetizers_title],
-            ["main_courses_title", config.main_courses_title || defaultConfig.main_courses_title],
-            ["pasta_title", config.pasta_title || defaultConfig.pasta_title],
-            ["desserts_title", config.desserts_title || defaultConfig.desserts_title],
-            ["beverages_title", config.beverages_title || defaultConfig.beverages_title]
-          ])
-        });
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              config.accent_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ accent_color: value });
+              }
+            }
+          },
+          {
+            get: () => config.border_color || defaultConfig.border_color,
+            set: (value) => {
+              config.border_color = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ border_color: value });
+              }
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            if (window.elementSdk) {
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            if (window.elementSdk) {
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["restaurant_name", config.restaurant_name || defaultConfig.restaurant_name],
+        ["restaurant_tagline", config.restaurant_tagline || defaultConfig.restaurant_tagline],
+        ["entradas_title", config.entradas_title || defaultConfig.entradas_title],
+        ["principais_title", config.principais_title || defaultConfig.principais_title],
+        ["sobremesas_title", config.sobremesas_title || defaultConfig.sobremesas_title],
+        ["footer_text", config.footer_text || defaultConfig.footer_text]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+
+    onConfigChange(defaultConfig);
+    
+    // Image Zoom Functionality
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.close-button');
+    
+    // Add click event to all zoomable images
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('zoomable-image')) {
+        modal.classList.add('active');
+        modalImg.src = e.target.src;
       }
-    })();
+    });
+    
+    // Close modal when clicking the X button
+    closeBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      modal.classList.remove('active');
+    });
+    
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', function() {
+      modal.classList.remove('active');
+    });
+    
+    // Prevent closing when clicking the image itself
+    modalImg.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b00e0cd2745f623',t:'MTc2NjA4NDE2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b3062aff5f0f623',t:'MTc2NjU4MjMxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
